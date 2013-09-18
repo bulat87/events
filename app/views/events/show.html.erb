@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <%= @event.title %>
+</h2>
+<div class="row">
+  <div class="col-lg-12">
+    <h3 id="type-blockquotes">Date:</h3>
+  </div>	
+</div>
+<p>
+  <%= @event.date %>
+</p>
+<div class="row">
+  <div class="col-lg-12">
+    <h3 id="type-blockquotes">Event description:</h3>
+  </div>	
+</div>
+<p>
+  <%= @event.content %>
+</p>
+<div class="row">
+  <div class="col-lg-12">
+    <h3 id="type-blockquotes">Sponsor:</h3>
+  </div>	
+</div>
+<p>
+  <%= @event.user.name + " " + @event.user.family_name %>
+</p>
+
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_event_path(@event), :class => "btn btn-warning" %>
+<% end %>  
+<%= link_to 'All events', events_path, :class => "btn btn-default" %>
+<h4>Comments:</h4>
+<%= render 'comments/index'%>
+<%= render 'comments/form' %>

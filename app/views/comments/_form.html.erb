@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <%= form_for [@event, current_user.comments.new] do |f| %>
+    <%= f.text_area :body, :id => "textArea", :class => "form-control", :rows => "3" %>
+    <p>
+      <div class="actions">
+        <%= f.submit :class => "btn btn-success" %>
+      </div>
+    </p>
+  <% end %>
+<% end %> 

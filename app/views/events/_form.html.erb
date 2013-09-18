@@ -1,0 +1,37 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <form class="bs-example form-horizontal">
+      <fieldset>
+        <div class="form-group">
+          <label class="col-lg-2 control-label" for="inputEmail">Event title</label>
+          <div class="col-lg-10">
+            <%= f.text_field :title, :id => "inputEmail", :class=> "form-control" %>
+          </div>
+        </div>  
+          <label class="col-lg-2 control-label" for="inputEmail">Event date</label>
+          <div class="col-lg-10">
+            <%= f.text_field :date %>
+          </div>
+        <div class="form-group">
+          <label class="col-lg-2 control-label" for="textArea">Event description</label>
+          <div class="col-lg-10">
+            <%= f.text_area :content, :id => "textArea", :class=> "form-control" %>
+          </div>
+        </div>
+        
+      </fieldset>
+    </form>
+    <%= f.submit :class => "btn btn-success" %>
+  </div>
+<% end %>
