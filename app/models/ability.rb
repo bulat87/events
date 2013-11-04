@@ -6,7 +6,7 @@ class Ability
   
     if user   
       can :delete, Comment  
-      can :update, Event do |event|  
+      can :update, :delete Event do |event|  
         event.try(:user) == user  
       end   
     end  
