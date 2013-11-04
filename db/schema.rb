@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130916143436) do
+ActiveRecord::Schema.define(:version => 20131104153751) do
 
   create_table "comments", :force => true do |t|
     t.integer  "event_id"
@@ -26,7 +26,9 @@ ActiveRecord::Schema.define(:version => 20130916143436) do
 
   create_table "events", :force => true do |t|
     t.string   "title"
-    t.date     "date"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "recurrence"
     t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
@@ -34,6 +36,13 @@ ActiveRecord::Schema.define(:version => 20130916143436) do
   end
 
   add_index "events", ["user_id"], :name => "index_events_on_user_id"
+
+  create_table "repeats", :force => true do |t|
+    t.integer  "event_id"
+    t.date     "date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

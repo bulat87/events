@@ -9,7 +9,7 @@
   </div>	
 </div>
 <p>
-  <%= @event.date %>
+  <%= @event.start_date %>
 </p>
 <div class="row">
   <div class="col-lg-12">
@@ -27,7 +27,14 @@
 <p>
   <%= @event.user.name + " " + @event.user.family_name %>
 </p>
-
+<div class="row">
+  <div class="col-lg-12">
+    <h3 id="type-blockquotes">Recurrence:</h3>
+  </div>  
+</div>
+<p>
+  <%= @event.recurrence %>
+</p>
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_event_path(@event), :class => "btn btn-warning" %>
 <% end %>  
